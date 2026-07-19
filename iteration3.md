@@ -42,7 +42,7 @@
   8. Training and testing data split
     - Split the train and test data to 8:2.
 
-## Machine Learning Model [TODO]
+## Machine Learning Model
 - The algorithm we selected is Logistic Regression (for multi-class classification). 
 - We also can extend to deep-learning approach, such as RNNs or LSTMs to increase the accuracy.
 - We selected the Logistic Regression because it is a strong/common baseline for supervised text classification task. It can handle multi-class classification. It also can efficiently handle large dataset. 
