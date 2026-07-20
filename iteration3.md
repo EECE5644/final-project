@@ -22,7 +22,7 @@
 - If time permits, it can be extended to a deep-learning approach with RNNs or LSTMs, which can capture sequential information in text.
 
 ## Data Preprocessing
-- Codes for the preprocessing process for the final project dataset (20 Newsgroups) are in 20newsgroups.ipynb. 
+- Codes for the preprocessing process for the final project dataset (20 Newsgroups) are in 20newsgroups.ipynb.
 - Preprocessing steps we completed for 20 newsgroups dataset:
   1. Encoding Categorical Variables
     - Convert the 20 newgroup category names to binary (0~19)
@@ -34,18 +34,18 @@
     - Remove the documents that were too short (e.g. fewer than 10 words)
   5. Feature engineering
     - Remove the quote and unnecessary info (e.g. headers at first including link kind of stuff)
-    - Convert each word into a weighted numerical feature 
+    - Convert each word into a weighted numerical feature
   6. Feature normalization
-    - Normalize each document vector and make each document length (words length) used for the data is consistent 
+    - Normalize each document vector and make each document length (words length) used for the data is consistent
   7. Feature selection
     - Using chi-square and only select top 5000 most discrimivative words of each texts to use as features
   8. Training and testing data split
     - Split the train and test data to 8:2.
 
 ## Machine Learning Model
-- The algorithm we selected is Logistic Regression (for multi-class classification). 
+- The algorithm we selected is Logistic Regression (for multi-class classification).
 - We also can extend to deep-learning approach, such as RNNs or LSTMs to increase the accuracy.
-- We selected the Logistic Regression because it is a strong/common baseline for supervised text classification task. It can handle multi-class classification. It also can efficiently handle large dataset. 
+- We selected the Logistic Regression because it is a strong/common baseline for supervised text classification task. It can handle multi-class classification. It also can efficiently handle large dataset.
 - Expected advantages are time efficiency on working with large datasets, reduction on the risk of overfitting (compared to complex model) by using regularization if needed, and solid accuracy.
 - Planned hyperparameter tuning:
   - solver: lbfgs
