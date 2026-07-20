@@ -3,6 +3,7 @@
 **Team Members:**
   - Dayeon Hyun
   - Yu Zhang
+
 **Project Title:** Topic Classification on the 20 Newsgroups Dataset
 **Task type:** Supervised multi-class text classification
 **GitHub Repo**: [https://github.com/EECE5644/final-project](https://github.com/EECE5644/final-project)
