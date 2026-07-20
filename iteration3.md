@@ -11,7 +11,6 @@
 - **Name:** 20 Newsgroups
 - **Source**: scikit-learn
 - **Link**: [https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html](https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html)
-- **Size:** ~18,000 posts, spread across 20 categories.
 - **Number of Samples:** 18846
 - **Target Variable**: 20 classes newsgroups
 
