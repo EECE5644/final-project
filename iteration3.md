@@ -23,8 +23,8 @@
 ## Data Preprocessing
 - Codes for the preprocessing process for the final project dataset (20 Newsgroups) are in 20newsgroups.ipynb.
 - Preprocessing steps we completed for 20 newsgroups dataset:
-  1. Encoding Categorical Variables
-    - Convert the 20 newgroup category names to binary (0~19)
+  1. Load train and test data from sklearn
+    - the ratio of train and test data is 6:4
   2. Handling Missing Values
     - Remove the empty documents(News)
   3. Removing Duplicate Records
@@ -38,8 +38,6 @@
     - Normalize each document vector and make each document length (words length) used for the data is consistent
   7. Feature selection
     - Using chi-square and only select top 5000 most discrimivative words of each texts to use as features
-  8. Training and testing data split
-    - Split the train and test data to 8:2.
 
 ## Machine Learning Model
 - The algorithm we selected is Logistic Regression (for multi-class classification).
@@ -50,7 +48,7 @@
   - solver: lbfgs
   - max_iter: 1000,
   - random_state: 8888
-  - multiclass: multinominal
+  - multi_class: multinomial
   - penalty: L2
 
 ## Research Questions
