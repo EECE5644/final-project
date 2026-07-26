@@ -25,7 +25,7 @@ data_test = fetch_20newsgroups(
     subset="test",
     remove=("headers", "footers", "quotes"),
     random_state=RANDOM_SEED,
-    shuffle=False
+    shuffle=False,
 )
 assert isinstance(data_train, Bunch)
 assert isinstance(data_test, Bunch)
