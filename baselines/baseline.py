@@ -42,5 +42,5 @@ y_pred = clf.predict(X_test)
 
 print(f"Train docs: {X_train.shape[0]}, Test docs: {X_test.shape[0]}")
 print(f"Vocabulary size: {len(vectorizer.get_feature_names_out())}")
-print(f"Accuracy: {accuracy_score(y_test, y_pred):.4f}")
+print(f"Accuracy: {accuracy_score(y_test, y_pred):.4%}")
 print(classification_report(y_test, y_pred, target_names=data_train.target_names))
