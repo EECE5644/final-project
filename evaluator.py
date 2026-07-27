@@ -16,8 +16,8 @@ class Metrics:
 def evaluate(model, features, labels) -> Metrics:
     predictions = model.predict(features)
     return Metrics(
-        accuracy=accuracy_score(labels, predictions),
-        precision=precision_score(labels, predictions, average="macro"),
-        recall=recall_score(labels, predictions, average="macro"),
-        f1=f1_score(labels, predictions, average="macro"),
+        accuracy=float(accuracy_score(labels, predictions)),
+        precision=float(precision_score(labels, predictions, average="macro")),
+        recall=float(recall_score(labels, predictions, average="macro")),
+        f1=float(f1_score(labels, predictions, average="macro")),
     )

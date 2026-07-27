@@ -6,7 +6,6 @@ Linear SVM, and Logistic Regression) on the 20 Newsgroups dataset.
 """
 
 from dataclasses import dataclass
-from typing import Protocol
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
@@ -17,6 +16,7 @@ from sklearn.svm import LinearSVC
 import data_preprossor
 import evaluator
 from config import RANDOM_SEED
+from ptypes import Classifier
 
 # ==================== Data Prepration ====================
 
@@ -34,11 +34,6 @@ X_test = vectorizer.transform(data_test.data)
 
 
 # ==================== Model Configs ====================
-class Classifier(Protocol):
-    def fit(self, X, y) -> object: ...
-    def predict(self, X) -> object: ...
-
-
 @dataclass
 class ModelConfig:
     model: Classifier
@@ -80,3 +75,13 @@ for name, config in configs.items():
         f"Recall={metrics.recall:.4f}, F1={metrics.f1:.4f}",
         sep=" ",
     )
+
+    # slug = name.lower().replace(" ", "_")
+    # plotter.plot_confusion_matrix(
+    #     model,
+    #     X_test,
+    #     y_test,
+    #     target_names,
+    #     title=f"{name}: Confusion Matrix (test set)",
+    #     save_path=f"{FIG_DIR}/confusion_matrix_{slug}.png",
+    # )
