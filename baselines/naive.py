@@ -63,6 +63,7 @@ print(f"Train docs: {X_train.shape[0]}, Test docs: {X_test.shape[0]}")
 print(f"Vocabulary size: {len(vectorizer.vocabulary_)}")
 print(
     f"baseline (LR): Accuracy={metrics.accuracy:.2%}, Precision={metrics.precision:.4f},",
-    f"Recall={metrics.recall:.4f}, F1={metrics.f1:.4f}", sep=" "
+    f"Recall={metrics.recall:.4f}, F1={metrics.f1:.4f}",
+    sep=" ",
 )
 print(classification_report(y_test, y_pred, target_names=data_train.target_names))
