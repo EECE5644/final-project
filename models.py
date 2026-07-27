@@ -6,7 +6,6 @@ Linear SVM, and Logistic Regression) on the 20 Newsgroups dataset.
 """
 
 from dataclasses import dataclass
-from typing import Protocol
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
@@ -16,8 +15,7 @@ from sklearn.svm import LinearSVC
 
 import data_preprossor
 import evaluator
-import plotter
-from config import FIG_DIR, RANDOM_SEED
+from config import RANDOM_SEED
 from ptypes import Classifier
 
 # ==================== Data Prepration ====================
