@@ -8,8 +8,10 @@ pipeline should be compared against.
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import classification_report
 from sklearn.utils import Bunch
+
+import evaluator
 
 DATA_DIR = "./datasets/20newsgroups"
 RANDOM_SEED = 8888
@@ -39,8 +41,12 @@ y_train, y_test = data_train.target, data_test.target
 clf = LogisticRegression(random_state=RANDOM_SEED)
 clf.fit(X_train, y_train)
 y_pred = clf.predict(X_test)
+metrics = evaluator.evaluate(clf, X_test, y_test)
 
 print(f"Train docs: {X_train.shape[0]}, Test docs: {X_test.shape[0]}")
 print(f"Vocabulary size: {len(vectorizer.get_feature_names_out())}")
-print(f"Accuracy: {accuracy_score(y_test, y_pred):.4%}")
+print(
+    f"baseline (LR): Accuracy={metrics.accuracy:.2%}, Precision={metrics.precision:.4f},",
+    f"Recall={metrics.recall:.4f}, F1={metrics.f1:.4f}", sep=" "
+)
 print(classification_report(y_test, y_pred, target_names=data_train.target_names))
