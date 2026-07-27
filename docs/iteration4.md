@@ -13,7 +13,7 @@ Finally, we evaluate the performance of each model using metrics such as accurac
 
 # Preprocessing
 Text preprocessing techniques: lowercasing, removing punctuation, removing numbers, removing extra spaces, tokenization, and stopwoard removal.
-The code is in [preprocessing.py](./data_preprossor.py).
+The code is in [preprocessing.py](../data_preprossor.py).
 
 # Hyperparameter tuning
 
@@ -45,9 +45,9 @@ Model comparison on 20 Newsgroups (TF-IDF features, 5-fold CV grid search).
 
 # Visualizations
 
-![Confusion Matrix for Multinomial Naive Bayes](attchments/confusion_matrix_multinomial_naive_bayes.png)
-![Confusion Matrix for Linear SVM](attchments/confusion_matrix_linear_svm.png)
-![Confusion Matrix for Logistic Regression](attchments/confusion_matrix_logistic_regression.png)
+![Confusion Matrix for Multinomial Naive Bayes](../attchments/confusion_matrix_multinomial_naive_bayes.png)
+![Confusion Matrix for Linear SVM](../attchments/confusion_matrix_linear_svm.png)
+![Confusion Matrix for Logistic Regression](../attchments/confusion_matrix_logistic_regression.png)
 
 # Feature Importance
 The features of our model are every unique tokenized word in our sample. The category-specific words contributes the most to the predictions. For example, "nasa", "orbit", "moon", and so on features are the strongest predictors for sci.space category, and "nhl", "cup", "playoffs", and so on are the most contributed features to the prediction in rec.sport.hockey category. "ploygon", "animation", "tiff", "3d", and so one are featires are the strongest predictors for comp.graphics categories.
