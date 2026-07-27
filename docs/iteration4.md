@@ -10,7 +10,7 @@ Finally, we evaluate the performance of each model using metrics such as accurac
 
 # Preprocessing
 Text preprocessing techniques: lowercasing, removing punctuation, removing numbers, removing extra spaces, tokenization, and stopwoard removal.
-The code is in [preprocessing.py](./data_preprossor.py).
+The code is in [preprocessing.py](../data_preprossor.py).
 
 # Hyperparameter tuning
 
