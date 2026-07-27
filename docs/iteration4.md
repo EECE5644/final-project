@@ -42,6 +42,6 @@ Model comparison on 20 Newsgroups (TF-IDF features, 5-fold CV grid search).
 
 # Visualizations
 
-![Confusion Matrix for Multinomial Naive Bayes](attchments/confusion_matrix_multinomial_naive_bayes.png)
-![Confusion Matrix for Linear SVM](attchments/confusion_matrix_linear_svm.png)
-![Confusion Matrix for Logistic Regression](attchments/confusion_matrix_logistic_regression.png)
+![Confusion Matrix for Multinomial Naive Bayes](../attchments/confusion_matrix_multinomial_naive_bayes.png)
+![Confusion Matrix for Linear SVM](../attchments/confusion_matrix_linear_svm.png)
+![Confusion Matrix for Logistic Regression](../attchments/confusion_matrix_logistic_regression.png)
