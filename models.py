@@ -62,6 +62,7 @@ def grid_search(model, param_grid, X_train, y_train):
     search.fit(X_train, y_train)
     return search.best_estimator_, search.best_params_, search.best_score_
 
+
 def show_top_features(model, vectorizer, target_names, top_n=10):
     """Print the top positive and negative features for each class."""
     feature_names = np.array(vectorizer.get_feature_names_out())
@@ -78,6 +79,7 @@ def show_top_features(model, vectorizer, target_names, top_n=10):
     else:
         print("This model does not provide coefficients (e.g., Naive Bayes).")
 
+
 for name, config in configs.items():
     model, best_params, best_score = grid_search(
         config.model, config.param_grid, X_train, y_train
@@ -91,9 +93,8 @@ for name, config in configs.items():
         sep=" ",
     )
 
-    #if hasattr(model, "coef_"):
+    # if hasattr(model, "coef_"):
     #    show_top_features(model, vectorizer, target_names, top_n=10)
-
 
     # slug = name.lower().replace(" ", "_")
     # plotter.plot_confusion_matrix(
@@ -104,5 +105,3 @@ for name, config in configs.items():
     #     title=f"{name}: Confusion Matrix (test set)",
     #     save_path=f"{FIG_DIR}/confusion_matrix_{slug}.png",
     # )
-
-
