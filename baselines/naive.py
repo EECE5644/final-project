@@ -7,9 +7,10 @@ instead of sklearn's built-in TfidfVectorizer. Compare against baselines/baselin
 from scipy.sparse import csr_matrix
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import classification_report
 
 import data_preprossor
+import evaluator
 
 
 class BagOfWordsVectorizer(BaseEstimator, TransformerMixin):
@@ -55,9 +56,14 @@ y_train, y_test = data_train.target, data_test.target
 clf = LogisticRegression()
 clf.fit(X_train, y_train)
 y_pred = clf.predict(X_test)
+metrics = evaluator.evaluate(clf, X_test, y_test)
 
 assert X_train.shape is not None and X_test.shape is not None
 print(f"Train docs: {X_train.shape[0]}, Test docs: {X_test.shape[0]}")
 print(f"Vocabulary size: {len(vectorizer.vocabulary_)}")
-print(f"Accuracy: {accuracy_score(y_test, y_pred):.4%}")
+print(
+    f"baseline (LR): Accuracy={metrics.accuracy:.2%}, Precision={metrics.precision:.4f},",
+    f"Recall={metrics.recall:.4f}, F1={metrics.f1:.4f}",
+    sep=" ",
+)
 print(classification_report(y_test, y_pred, target_names=data_train.target_names))
