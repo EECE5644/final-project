@@ -61,11 +61,11 @@ The most important insights obtained from the machine learning model is which fe
 
 The predictions are meaningful for the application domain because the model can predict/classify the newspost/document into categories with reliable accuracy with the meaningful discriminative words that are assiciated with each categories. This means the model can predict based on reasonable judgement, and it can be used in application domain.
 
-The strenghs of my model is that coefficients reveal which words matter most and it is fast to run with the large dataset compared to other models we tested. Also, the accuracy of the model is the highest in three models we tested (Logistic Regression, Linear SVM, Multinomial Naive Bayes). The limitations of my model is that it ignores the word order, which can reduce the accuracy. Another limitation (it can probably be the preprocessing step problem, or also the model issue) is that it can't exclude the generic words. 
+The strenghs of my model is that coefficients reveal which words matter most and it is fast to run with the large dataset compared to other models we tested. Also, the accuracy of the model is the highest in three models we tested (Logistic Regression, Linear SVM, Multinomial Naive Bayes). The limitations of my model is that it ignores the word order, which can reduce the accuracy. Another limitation (it can probably be the preprocessing step problem, or also the model issue) is that it can't exclude the generic words.
 
-There are also the limitations exist in the dataset because some categories share many vocabulary, which makes classification between these categories difficult. Also, the dataset is created in 1999, so words can be little outdated to classify the newspapers of recent years (2020s). Additionally, categories we used for training doesn't cover enough topic field to classify every newspapers (e.g. health, and so on). 
+There are also the limitations exist in the dataset because some categories share many vocabulary, which makes classification between these categories difficult. Also, the dataset is created in 1999, so words can be little outdated to classify the newspapers of recent years (2020s). Additionally, categories we used for training doesn't cover enough topic field to classify every newspapers (e.g. health, and so on).
 
-If we collect more recent newspost for out dataset, it can improve relevance. Also, adding more newspost with more various newsgroup categories can help increasing the accuracy of the model and can cover more types of newspost for prediction. 
+If we collect more recent newspost for out dataset, it can improve relevance. Also, adding more newspost with more various newsgroup categories can help increasing the accuracy of the model and can cover more types of newspost for prediction.
 
 We can apply this predictive model in a real-world setting to categorize the post type (create tag automatically for the post like the tag in instagram) and filtering the inappropritate post/comment to automatically remove the negative writings/post/comment in youtube or any other platforms.
 
@@ -81,7 +81,7 @@ We can apply this predictive model in a real-world setting to categorize the pos
 - Which model minimizes critical prediction errors (for example, false negatives in healthcare applications)?
     - Linear SVM tends to reduce false negatives slightly more than Naive Bayes (only for false negative part), but Naive Bayes minimizes the critical prediction errors best overall in our dataset.
 - How well does the final model generalize to unseen test data?
-    -  We got 77% accuracy and 86% CV accuracy for the final model, which indicates out model generalized good for unseen test data. Misclassifications mostly occur in overlapping categories, which is dataset issue, not the model issue. 
+    -  We got 77% accuracy and 86% CV accuracy for the final model, which indicates out model generalized good for unseen test data. Misclassifications mostly occur in overlapping categories, which is dataset issue, not the model issue.
 - Did hyperparameter tuning improve the model's performance?
     - Yes, we used grid search to to tune the best hyperparamer for each models. We observed that tuning hyperparameter improves the model's croos-validation accuracy (model's performace) than default setting.
 - How does feature selection affect the final results?
