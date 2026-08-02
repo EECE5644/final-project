@@ -1,22 +1,36 @@
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 from matplotlib.patches import Rectangle
-from scipy.sparse import spmatrix
 from sklearn.metrics import confusion_matrix
 
+from config import FIG_DIR
 from ptypes import Classifier
+
+
+def _figure_path(name: str, kind: str) -> str:
+    """`FIG_DIR/<kind>_<slug-name>.png`, creating the directory on first use."""
+    Path(FIG_DIR).mkdir(parents=True, exist_ok=True)
+    slug = name.lower().replace(" + ", "_").replace(" ", "_").replace("-", "")
+
+    return f"{FIG_DIR}/{kind}_{slug}.png"
 
 
 def plot_confusion_matrix(
     model: Classifier,
-    features: spmatrix,
+    features: list[str],
     labels: np.ndarray,
     target_names: list[str],
-    title: str,
-    save_path: str,
+    *,
+    name: str,
 ):
-    """Row-normalized confusion matrix: share of each true class predicted as each class.
+    """
+    Row-normalized confusion matrix: share of each true class predicted as each class.
+
+    Writes `FIG_DIR/confusion_matrix_<name>.png`; callers pass the run's display name and
+    this decides the title and the filename from it.
 
     The diagonal (correct predictions) is masked out of the color scale — its values
     (0.6-0.95) would otherwise stretch the colormap so far that the much smaller
@@ -51,12 +65,13 @@ def plot_confusion_matrix(
             fontsize=8,
             color="0.3",
         )
-        ax.set_xlabel("Predicted label")
-        ax.set_ylabel("True label")
-        ax.set_title(f"{title} (diagonal grayed out; correct-class rate shown as text)")
-        plt.setp(ax.get_xticklabels(), rotation=45, ha="right")
-        plt.setp(ax.get_yticklabels(), rotation=0)
 
-        fig.tight_layout()
-        fig.savefig(save_path, dpi=300)
-        plt.close(fig)
+    ax.set_xlabel("Predicted label")
+    ax.set_ylabel("True label")
+    ax.set_title(f"{name}: Confusion Matrix (diagonal grayed out)")
+    plt.setp(ax.get_xticklabels(), rotation=45, ha="right")
+    plt.setp(ax.get_yticklabels(), rotation=0)
+
+    fig.tight_layout()
+    fig.savefig(_figure_path(name, "confusion_matrix"), dpi=300)
+    plt.close(fig)

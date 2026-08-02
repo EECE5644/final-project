@@ -1,66 +1,121 @@
 """
-Model comparison for 20 Newsgroups classification.
+Registry of the classifiers we compare.
 
-This script trains and evaluates three different classifiers (Multinomial Naive Bayes,
-Linear SVM, and Logistic Regression) on the 20 Newsgroups dataset.
+`MODELS` holds each model's factory and its unprefixed parameter grid; `build` composes
+one into a `vec` + `clf` Pipeline and rewrites the grid keys into the `clf__` / `vec__`
+form `GridSearchCV` needs.
 """
 
-from dataclasses import dataclass
+from collections.abc import Callable
+from dataclasses import dataclass, field
+from functools import partial
 
-from sklearn.feature_extraction.text import TfidfVectorizer
+import numpy as np
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import GridSearchCV
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.naive_bayes import ComplementNB, MultinomialNB
+from sklearn.neural_network import MLPClassifier
+from sklearn.pipeline import Pipeline
 from sklearn.svm import LinearSVC
 
-import data_preprossor
-import evaluator
+import vectorizers
 from config import RANDOM_SEED
-from ptypes import Classifier
+from ptypes import Architecture, Classifier, Experiment, ParamGrid
 
-# ==================== Data Prepration ====================
-
-data_train, data_test = data_preprossor.load_data()
-data_train, data_test = (
-    data_preprossor.preprocess_data(data_train),
-    data_preprossor.preprocess_data(data_test),
-)
-target_names = data_train.target_names
-y_train, y_test = data_train.target, data_test.target
-
-vectorizer = TfidfVectorizer(min_df=2)
-X_train = vectorizer.fit_transform(data_train.data)
-X_test = vectorizer.transform(data_test.data)
+VEC_STEP, CLF_STEP = "vec", "clf"
+"""Pipeline step names. Fixed, because `build` prefixes grid keys with them."""
 
 
-# ==================== Model Configs ====================
-@dataclass
-class ModelConfig:
-    model: Classifier
-    param_grid: dict[str, list] | None = None
+@dataclass(frozen=True)
+class ModelSpec:
+    """
+    The components needed to build a model.
+
+    `n_jobs` is for the `GridSearchCV` work, not the model itself.
+    """
+
+    label: str
+    factory: Callable[..., Classifier]
+    param_grid: ParamGrid = field(default_factory=dict)
+    default_method: vectorizers.Method = vectorizers.Method.TFIDF
+    n_jobs: int = -1
 
 
-configs = {
-    "Multinomial Naive Bayes": ModelConfig(
-        MultinomialNB(),
+def _torch(architecture: Architecture):
+    """Imported torch lazily."""
+
+    def factory(**kwargs) -> Classifier:
+        from dl import TorchTextClassifier
+
+        return TorchTextClassifier(architecture=architecture, **kwargs)
+
+    return factory
+
+
+MODELS: dict[str, ModelSpec] = {
+    # ─── ML Methods ─────────────────────────────────────────
+    "multinomial_naive_bayes": ModelSpec(
+        "Multinomial Naive Bayes",
+        MultinomialNB,
         {"alpha": [0.001, 0.01, 0.1, 0.5, 1.0]},
     ),
-    "Linear SVM": ModelConfig(
-        LinearSVC(random_state=RANDOM_SEED, max_iter=5000),
+    "complement_naive_bayes": ModelSpec(
+        "Complement Naive Bayes",
+        ComplementNB,
+        {"alpha": [0.001, 0.01, 0.1, 0.5, 1.0]},
+    ),
+    "linear_svm": ModelSpec(
+        "Linear SVM",
+        partial(LinearSVC, random_state=RANDOM_SEED, max_iter=5000),
         {"C": [0.01, 0.1, 1, 10]},
     ),
-    "Logistic Regression": ModelConfig(
-        LogisticRegression(random_state=RANDOM_SEED, max_iter=1000),
+    "logistic_regression": ModelSpec(
+        "Logistic Regression",
+        partial(LogisticRegression, random_state=RANDOM_SEED, max_iter=1000),
         {"C": [0.01, 0.1, 1, 10, 100]},
+    ),
+    "mlp": ModelSpec(
+        "MLP",
+        partial(MLPClassifier, early_stopping=True, random_state=RANDOM_SEED),
+        {"hidden_layer_sizes": [(256,), (512,)]},
+        n_jobs=2,
+    ),
+    # ─── DL Methods ─────────────────────────────────────────
+    "bag_of_embeddings": ModelSpec(
+        "Bag of embeddings", _torch("bag"), default_method=vectorizers.Method.SEQUENCE
+    ),
+    "lstm": ModelSpec(
+        "BiLSTM", _torch("bilstm"), default_method=vectorizers.Method.SEQUENCE
     ),
 }
 
 
-# ==================== Training & Evaluation ====================
-def grid_search(model, param_grid, X_train, y_train):
-    search = GridSearchCV(model, param_grid, cv=5, n_jobs=-1)
-    search.fit(X_train, y_train)
-    return search.best_estimator_, search.best_params_, search.best_score_
+def _prefix(grid: ParamGrid, step: str) -> ParamGrid:
+    return {f"{step}__{key}": values for key, values in grid.items()}
+
+
+def build(model: str, method: str | None = None) -> Experiment:
+    """
+    Compose a registry entry and a feature representation into a runnable `Experiment`.
+
+    `method` defaults to whatever the spec declares.
+    """
+    spec = MODELS[model]
+    method = vectorizers.Method(method) if method else spec.default_method
+
+    steps = [
+        (VEC_STEP, vectorizers.VECTORIZERS[method]()),
+        (CLF_STEP, spec.factory()),
+    ]
+
+    grid = _prefix(spec.param_grid, CLF_STEP) if spec.param_grid else {}
+    label = vectorizers.LABELS.get(method, method)
+
+    return Experiment(
+        name=f"{spec.label} + {label}",
+        estimator=Pipeline(steps),  # pyright: ignore[reportArgumentType]
+        param_grid=grid or None,
+        n_jobs=spec.n_jobs,
+    )
 
 
 def show_top_features(model, vectorizer, target_names, top_n=10):
@@ -78,30 +133,3 @@ def show_top_features(model, vectorizer, target_names, top_n=10):
             print("Top negative features:", feature_names[top_negative_indices])
     else:
         print("This model does not provide coefficients (e.g., Naive Bayes).")
-
-
-for name, config in configs.items():
-    model, best_params, best_score = grid_search(
-        config.model, config.param_grid, X_train, y_train
-    )
-    print(f"{name}: Best Params: {best_params}, Best CV Accuracy: {best_score:.4f}")
-
-    metrics = evaluator.evaluate(model, X_test, y_test)
-    print(
-        f"{name}: Accuracy={metrics.accuracy:.2%}, Precision={metrics.precision:.4f},",
-        f"Recall={metrics.recall:.4f}, F1={metrics.f1:.4f}",
-        sep=" ",
-    )
-
-    # if hasattr(model, "coef_"):
-    #    show_top_features(model, vectorizer, target_names, top_n=10)
-
-    # slug = name.lower().replace(" ", "_")
-    # plotter.plot_confusion_matrix(
-    #     model,
-    #     X_test,
-    #     y_test,
-    #     target_names,
-    #     title=f"{name}: Confusion Matrix (test set)",
-    #     save_path=f"{FIG_DIR}/confusion_matrix_{slug}.png",
-    # )
