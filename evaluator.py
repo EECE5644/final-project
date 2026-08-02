@@ -5,8 +5,10 @@ from dataclasses import dataclass
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
 
 
-@dataclass
+@dataclass(frozen=True)
 class Metrics:
+    """Evaluation metrics for Classifier."""
+
     accuracy: float
     precision: float
     recall: float

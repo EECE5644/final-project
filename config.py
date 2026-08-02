@@ -5,3 +5,6 @@ FIG_DIR = r"./figures"
 
 RANDOM_SEED = 8888
 MIN_DOC_WORDS = 10
+MIN_DF = 2
+MIN_FREQ = 2
+MAX_LEN = 200
