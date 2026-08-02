@@ -80,12 +80,12 @@ MODELS: dict[str, ModelSpec] = {
         n_jobs=2,
     ),
     # ─── DL Methods ─────────────────────────────────────────
-  "bag_of_embeddings": ModelSpec(
-    "Bag of embeddings", _torch("bag"), default_method=vectorizers.Method.SEQUENCE
-  ),
-  "lstm": ModelSpec(
-    "BiLSTM", _torch("bilstm"), default_method=vectorizers.Method.SEQUENCE
-  ),
+    "bag_of_embeddings": ModelSpec(
+        "Bag of embeddings", _torch("bag"), default_method=vectorizers.Method.SEQUENCE
+    ),
+    "lstm": ModelSpec(
+        "BiLSTM", _torch("bilstm"), default_method=vectorizers.Method.SEQUENCE
+    ),
 }
 
 
