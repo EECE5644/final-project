@@ -3,16 +3,19 @@ Drives an experiment end to end: CV, fit, score, and optionally plot.
 
 Accepts anything satisfying `ptypes.Classifier` over documents, so one code path serves a
 sklearn Pipeline and a torch estimator alike. `param_grid=None` fits once without searching.
+
+`use_wandb=True` also logs the run to Weights & Biases; it is off by default.
 """
 
 from collections.abc import Iterable
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 
 from sklearn.base import BaseEstimator
 from sklearn.model_selection import GridSearchCV
 
 import evaluator
 import plotter
+from config import PROJECT_NAME
 from evaluator import Metrics
 from preprocessing import Dataset
 from ptypes import Classifier, Experiment, ParamGrid
@@ -29,6 +32,16 @@ class Result:
     cv_score: float | None = None
 
 
+def _start_wandb(name: str, estimator: Classifier, param_grid: ParamGrid | None):
+    """Open a wandb run named `name`, seeded with the estimator's params as its config."""
+    import wandb
+
+    config = estimator.get_params() if isinstance(estimator, BaseEstimator) else {}
+    config |= {f"grid/{key}": values for key, values in (param_grid or {}).items()}
+
+    return wandb.init(project=PROJECT_NAME, name=name, config=config)
+
+
 def run(
     estimator: Classifier,
     train: Dataset,
@@ -39,6 +52,7 @@ def run(
     cv: int = 5,
     n_jobs: int = -1,
     plot: bool = False,
+    use_wandb: bool = False,
 ) -> Result:
     """
     Fit on `train`, searching `param_grid` if one is given, then score on `test`.
@@ -46,6 +60,8 @@ def run(
     The vectorizer is a step of `estimator`, so it is refit inside every fold -- no
     validation data ever leaks into the vocabulary or the IDF weights.
     """
+    tracker = _start_wandb(name, estimator, param_grid) if use_wandb else None
+
     if param_grid:
         assert isinstance(estimator, BaseEstimator)
         search = GridSearchCV(estimator, param_grid, cv=cv, n_jobs=n_jobs)
@@ -64,6 +80,12 @@ def run(
             fitted, test.documents, test.targets, test.target_names, name=name
         )
 
+    if tracker is not None:
+        # The search's winners, which the config seeded at init could not know yet.
+        tracker.config.update(best_params or {}, allow_val_change=True)
+        tracker.summary.update(asdict(metrics) | {"cv_score": cv_score})
+        tracker.finish()
+
     return Result(name, metrics, fitted, best_params, cv_score)
 
 
@@ -74,6 +96,7 @@ def run_all(
     *,
     cv: int = 5,
     plot: bool = False,
+    use_wandb: bool = False,
 ) -> list[Result]:
     """`run` each experiment in turn, reporting as it goes."""
     results = []
@@ -88,8 +111,9 @@ def run_all(
             n_jobs=experiment.n_jobs,
             cv=cv,
             plot=plot,
+            use_wandb=use_wandb,
         )
-        print(f"  {summarize(result)}", flush=True)
+        print(f"\t{summarize(result)}", flush=True)
         results.append(result)
 
     return results
