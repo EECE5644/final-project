@@ -33,6 +33,9 @@ _SHARED: dict = {
     "token_pattern": TOKEN_PATTERN,
 }
 
+ANALYZER = TfidfVectorizer(**_SHARED).build_analyzer()
+"""Documents -> terms, straight from `_SHARED` so every representation splits alike."""
+
 LABELS = {
     Method.TFIDF: "TF-IDF",
     Method.BOW: "BoW",
@@ -72,11 +75,9 @@ class SequenceEncoder(BaseEstimator, TransformerMixin):
         self.max_len = max_len
 
     def fit(self, X: list[str], y: object = None):
-        analyzer = tfidf().build_analyzer()
-
         counts: dict[str, int] = {}
         for document in X:
-            for term in analyzer(document)[: self.max_len]:
+            for term in ANALYZER(document)[: self.max_len]:
                 counts[term] = counts.get(term, 0) + 1
 
         self.vocabulary_ = {}
@@ -87,14 +88,12 @@ class SequenceEncoder(BaseEstimator, TransformerMixin):
         return self
 
     def transform(self, X: list[str]) -> list[list[int]]:
-        analyzer = tfidf().build_analyzer()
-
         check_is_fitted(self)
         sequences = []
         for document in X:
             ids = [
                 self.vocabulary_.get(term, UNK_ID)
-                for term in analyzer(document)[: self.max_len]
+                for term in ANALYZER(document)[: self.max_len]
             ]
             # pack_padded_sequence rejects zero-length rows, and cleaning can empty a doc.
             # NOTE: And we cannot just drop the empty rows, because the classifier expects one output per input row.
