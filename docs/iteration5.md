@@ -6,12 +6,12 @@
 
 # Machine Learning Model
 - Codes for implementing machine learning model is in python code files (e.g. moels.py, vectorizers.py, baseline.py, etc)
-- The final model we chose was Linear SVM + TF-IDF, which has highest/reliable overall performance across Multinomial Naive Bayes with Bag-of-Words (BoW) features/TF-IDF features, Complement Naive Bayes with BoW features/TF-IDF features, Logistic Regression with BoW features/TF-IDF features, Linear SVM with BoW features/TF-IDF features, MLP (Multi-Layer Perceptron) with BoW features/TF-IDF features, BiLSTM (Bidirectional LSTM) with learned embeddings/bag of embeddings + learned embeddings.
+- The final model we chose was Complement Naive Bayes + TF‑IDF, which has highest/reliable overall performance across Multinomial Naive Bayes with Bag-of-Words (BoW) features/TF-IDF features, Complement Naive Bayes with BoW features/TF-IDF features, Logistic Regression with BoW features/TF-IDF features, Linear SVM with BoW features/TF-IDF features, MLP (Multi-Layer Perceptron) with BoW features/TF-IDF features, BiLSTM (Bidirectional LSTM) with learned embeddings/bag of embeddings + learned embeddings.
 
 # Model Evaluation
 - We used accuracy, precision, recall, and F-1 score for our evaluation metrics. 
 ![evaluation_metrics_comparison](../attchments/evaluation_metrics_comparison.png)
-- If we only consider the metrics, complement Naive Bayes + TF‑IDF and MLP + TF‑IDF achieved the high and best balance between accuracy, precision, recall, and F1-score. However, If we consider metric balance, overall accuracy, and consistency in strong correct‑class rates on across categories, linear SVM + TF-IDF has the best performance. 
+- Complement Naive Bayes + TF‑IDF achieved the high and best balance between accuracy, precision, recall, and F1-score.
 
 # Visualizations
 - Visualizations are saved in attachments directory. Path given for this directory is start from the root. (Path: /attachments)
@@ -20,9 +20,9 @@
 - What insights were obtained from the data?
     - The most important insights obtained from the machine learning model is which features are the most discriminature words to categorize the post/writings ("nasa", "orbit", "nhl", "mac", etc). We also found that we need to set the feature sizes and feature selection carefully to get the high accuracy in our model (Not just smaller/larger size of features are good).
 - Which machine learning algorithm produced the best performance? 
-    - When we tested the performance of algorithm across Multinomial Naive Bayes with Bag-of-Words (BoW) features/TF-IDF features, Complement Naive Bayes with BoW features/TF-IDF features, Logistic Regression with BoW features/TF-IDF features, Linear SVM with BoW features/TF-IDF features, MLP (Multi-Layer Perceptron) with BoW features/TF-IDF features, BiLSTM (Bidirectional LSTM) with learned embeddings/bag of embeddings + learned embeddings, the Linear SVM with TF‑IDF features produced the best overall performance especially considering metric balance, overall accuracy, and consistency in strong correct‑class rates on across categories.
+    - When we tested the performance of algorithm across Multinomial Naive Bayes with Bag-of-Words (BoW) features/TF-IDF features, Complement Naive Bayes with BoW features/TF-IDF features, Logistic Regression with BoW features/TF-IDF features, Linear SVM with BoW features/TF-IDF features, MLP (Multi-Layer Perceptron) with BoW features/TF-IDF features, BiLSTM (Bidirectional LSTM) with learned embeddings/bag of embeddings + learned embeddings, the complement Naive Bayes + TF‑IDF produced the best overall performance especially considering metric balance, although Linear SVM with TF‑IDF features has higher consistency in strong correct‑class rates on across categories.
 - Which algorithm achieved the best balance between accuracy, precision, recall, and F1-score?
-    - Only consider the metrics, complement Naive Bayes + TF‑IDF and MLP + TF‑IDF achieved the high and best balance between accuracy, precision, recall, and F1-score.
+    - Only consider the metrics, complement Naive Bayes + TF‑IDF are the high and has the best balance between accuracy, precision, recall, and F1-score.
 - Which evaluation metric is the most appropriate for your problem, and why?
     - We used accuracy, precision, recall, and F-1 score for our evaluation metrics (all of them can be used to evaluate the classification model), but the most appropriate evaluation metrics for our problem is F1 score because it balances both precision and recall. (highest accuracy, strong precision, high recall, balanced f-1 score)
 - What does the confusion matrix reveal about false positives and false negatives?
