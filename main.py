@@ -29,7 +29,7 @@ def main() -> None:
     ]
     print(f"{len(experiments)} experiments queued\n")
 
-    runner.run_all(experiments, train_dataset, test_dataset, plot=True)
+    runner.run_all(experiments, train_dataset, test_dataset, plot=True, use_wandb=True)
 
 
 if __name__ == "__main__":

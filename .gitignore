@@ -1,5 +1,6 @@
 20_newsgroups/
 datasets/
 figures/
+wandb/
 
 __pycache__/

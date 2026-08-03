@@ -1,6 +1,7 @@
 """PyTorch side of the pipeline, wearing the same interface as the sklearn models."""
 
 import copy
+import sys
 from typing import override
 
 import numpy as np
@@ -36,6 +37,18 @@ class _SequenceDataset(Dataset):
     def __getitem__(self, idx):
         label = -1 if self.labels is None else int(self.labels[idx])
         return torch.tensor(self.sequences[idx], dtype=torch.long), label
+
+
+def _active_wandb_run():
+    """
+    The wandb run `runner` opened, or None when tracking is off.
+
+    Looked up in `sys.modules` instead of imported: if nobody imported `wandb` there is
+    no run to log into, so the training loop stays free of the dependency entirely.
+    """
+    wandb = sys.modules.get("wandb")
+
+    return wandb.run if wandb else None
 
 
 def _collate(batch):
@@ -183,6 +196,7 @@ class TorchTextClassifier(BaseEstimator):
         )
         criterion = nn.CrossEntropyLoss()
 
+        run = _active_wandb_run()
         best_score, best_state, stale = -1.0, None, 0
         for epoch in range(self.epochs):
             self.model_.train()
@@ -195,9 +209,13 @@ class TorchTextClassifier(BaseEstimator):
                 optimizer.step()
                 total_loss += loss.item() * inputs.size(0)
 
-            report = f"    epoch {epoch + 1}/{self.epochs}: loss={total_loss / len(X_fit):.4f}"
+            curve = {"epoch": epoch + 1, "train_loss": total_loss / len(X_fit)}
+            report = (
+                f"\tepoch {epoch + 1}/{self.epochs}: loss={curve['train_loss']:.4f}"
+            )
             if X_val is not None:
                 score = float((self.predict(X_val) == y_val).mean())
+                curve["val_acc"] = score
                 report += f", val_acc={score:.2%}"
                 if score > best_score:
                     best_score, stale = score, 0
@@ -206,10 +224,12 @@ class TorchTextClassifier(BaseEstimator):
                     stale += 1
             if self.verbose:
                 print(report, flush=True)
+            if run is not None:
+                run.log(curve)
 
             if stale >= self.patience:
                 if self.verbose:
-                    print(f"    stopping: no gain in {stale} epochs", flush=True)
+                    print(f"\tstopping: no gain in {stale} epochs", flush=True)
                 break
 
         # Keep the epoch that generalized best rather than the last one: training loss on

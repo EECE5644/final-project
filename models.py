@@ -77,7 +77,7 @@ MODELS: dict[str, ModelSpec] = {
         "MLP",
         partial(MLPClassifier, early_stopping=True, random_state=RANDOM_SEED),
         {"hidden_layer_sizes": [(256,), (512,)]},
-        n_jobs=2,
+        n_jobs=4,
     ),
     # ─── DL Methods ─────────────────────────────────────────
     "bag_of_embeddings": ModelSpec(
