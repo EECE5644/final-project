@@ -83,7 +83,7 @@ def run(
     if tracker is not None:
         # The search's winners, which the config seeded at init could not know yet.
         tracker.config.update(best_params or {}, allow_val_change=True)
-        tracker.summary.update(asdict(metrics) | {"cv_score": cv_score})
+        tracker.log(asdict(metrics) | {"cv_score": cv_score})
         tracker.finish()
 
     return Result(name, metrics, fitted, best_params, cv_score)
