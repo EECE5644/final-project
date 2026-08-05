@@ -1,0 +1,451 @@
+uv run '/Users/fau/Documents/Fau/projects/school/eece5644/final-project/main.py'
+Train docs: 10707, Test docs: 7085, Classes: 20
+12 experiments queued
+
+running Multinomial Naive Bayes + TF-IDF ...
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /Users/fau/.config/netrc/netrc.
+wandb: Currently logged in as: yu-p-zhang (eece5644) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.28.1
+wandb: Run data is saved locally in /Users/fau/Documents/Fau/projects/school/eece5644/final-project/wandb/run-20260802_203055-hovsdmhv
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Multinomial Naive Bayes + TF-IDF
+wandb: ⭐️ View project at https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: 🚀 View run at https://wandb.ai/eece5644/final-project-20newsgroups/runs/hovsdmhv
+wandb:
+wandb: Run history:
+wandb:  accuracy ▁
+wandb:  cv_score ▁
+wandb:        f1 ▁
+wandb: precision ▁
+wandb:    recall ▁
+wandb:
+wandb: Run summary:
+wandb:  accuracy 0.72618
+wandb:  cv_score 0.78472
+wandb:        f1 0.70407
+wandb: precision 0.7297
+wandb:    recall 0.70909
+wandb:
+wandb: 🚀 View run Multinomial Naive Bayes + TF-IDF at: https://wandb.ai/eece5644/final-project-20newsgroups/runs/hovsdmhv
+wandb: ⭐️ View project at: https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260802_203055-hovsdmhv/logs
+	CV=0.7847, Accuracy=72.62%, Precision=0.7297, Recall=0.7091, F1=0.7041
+running Multinomial Naive Bayes + BoW ...
+wandb: Tracking run with wandb version 0.28.1
+wandb: Run data is saved locally in /Users/fau/Documents/Fau/projects/school/eece5644/final-project/wandb/run-20260802_203104-99yw55zk
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Multinomial Naive Bayes + BoW
+wandb: ⭐️ View project at https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: 🚀 View run at https://wandb.ai/eece5644/final-project-20newsgroups/runs/99yw55zk
+wandb:
+wandb: Run history:
+wandb:  accuracy ▁
+wandb:  cv_score ▁
+wandb:        f1 ▁
+wandb: precision ▁
+wandb:    recall ▁
+wandb:
+wandb: Run summary:
+wandb:  accuracy 0.72011
+wandb:  cv_score 0.7807
+wandb:        f1 0.7046
+wandb: precision 0.71482
+wandb:    recall 0.70582
+wandb:
+wandb: 🚀 View run Multinomial Naive Bayes + BoW at: https://wandb.ai/eece5644/final-project-20newsgroups/runs/99yw55zk
+wandb: ⭐️ View project at: https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260802_203104-99yw55zk/logs
+	CV=0.7807, Accuracy=72.01%, Precision=0.7148, Recall=0.7058, F1=0.7046
+running Complement Naive Bayes + TF-IDF ...
+wandb: Tracking run with wandb version 0.28.1
+wandb: Run data is saved locally in /Users/fau/Documents/Fau/projects/school/eece5644/final-project/wandb/run-20260802_203110-0ral0as5
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Complement Naive Bayes + TF-IDF
+wandb: ⭐️ View project at https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: 🚀 View run at https://wandb.ai/eece5644/final-project-20newsgroups/runs/0ral0as5
+wandb:
+wandb: Run history:
+wandb:  accuracy ▁
+wandb:  cv_score ▁
+wandb:        f1 ▁
+wandb: precision ▁
+wandb:    recall ▁
+wandb:
+wandb: Run summary:
+wandb:  accuracy 0.73959
+wandb:  cv_score 0.79303
+wandb:        f1 0.71833
+wandb: precision 0.73033
+wandb:    recall 0.72336
+wandb:
+wandb: 🚀 View run Complement Naive Bayes + TF-IDF at: https://wandb.ai/eece5644/final-project-20newsgroups/runs/0ral0as5
+wandb: ⭐️ View project at: https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260802_203110-0ral0as5/logs
+	CV=0.7930, Accuracy=73.96%, Precision=0.7303, Recall=0.7234, F1=0.7183
+running Complement Naive Bayes + BoW ...
+wandb: Tracking run with wandb version 0.28.1
+wandb: Run data is saved locally in /Users/fau/Documents/Fau/projects/school/eece5644/final-project/wandb/run-20260802_203116-4te8qs3x
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Complement Naive Bayes + BoW
+wandb: ⭐️ View project at https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: 🚀 View run at https://wandb.ai/eece5644/final-project-20newsgroups/runs/4te8qs3x
+wandb:
+wandb: Run history:
+wandb:  accuracy ▁
+wandb:  cv_score ▁
+wandb:        f1 ▁
+wandb: precision ▁
+wandb:    recall ▁
+wandb:
+wandb: Run summary:
+wandb:  accuracy 0.74072
+wandb:  cv_score 0.79201
+wandb:        f1 0.71852
+wandb: precision 0.73185
+wandb:    recall 0.72421
+wandb:
+wandb: 🚀 View run Complement Naive Bayes + BoW at: https://wandb.ai/eece5644/final-project-20newsgroups/runs/4te8qs3x
+wandb: ⭐️ View project at: https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260802_203116-4te8qs3x/logs
+	CV=0.7920, Accuracy=74.07%, Precision=0.7319, Recall=0.7242, F1=0.7185
+running Linear SVM + TF-IDF ...
+wandb: Tracking run with wandb version 0.28.1
+wandb: Run data is saved locally in /Users/fau/Documents/Fau/projects/school/eece5644/final-project/wandb/run-20260802_203121-v8pjylmo
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Linear SVM + TF-IDF
+wandb: ⭐️ View project at https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: 🚀 View run at https://wandb.ai/eece5644/final-project-20newsgroups/runs/v8pjylmo
+wandb:
+wandb: Run history:
+wandb:  accuracy ▁
+wandb:  cv_score ▁
+wandb:        f1 ▁
+wandb: precision ▁
+wandb:    recall ▁
+wandb:
+wandb: Run summary:
+wandb:  accuracy 0.71291
+wandb:  cv_score 0.78201
+wandb:        f1 0.70146
+wandb: precision 0.70524
+wandb:    recall 0.70149
+wandb:
+wandb: 🚀 View run Linear SVM + TF-IDF at: https://wandb.ai/eece5644/final-project-20newsgroups/runs/v8pjylmo
+wandb: ⭐️ View project at: https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260802_203121-v8pjylmo/logs
+	CV=0.7820, Accuracy=71.29%, Precision=0.7052, Recall=0.7015, F1=0.7015
+running Linear SVM + BoW ...
+wandb: Tracking run with wandb version 0.28.1
+wandb: Run data is saved locally in /Users/fau/Documents/Fau/projects/school/eece5644/final-project/wandb/run-20260802_203132-n6376uz5
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Linear SVM + BoW
+wandb: ⭐️ View project at https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: 🚀 View run at https://wandb.ai/eece5644/final-project-20newsgroups/runs/n6376uz5
+wandb:
+wandb: Run history:
+wandb:  accuracy ▁
+wandb:  cv_score ▁
+wandb:        f1 ▁
+wandb: precision ▁
+wandb:    recall ▁
+wandb:
+wandb: Run summary:
+wandb:  accuracy 0.69005
+wandb:  cv_score 0.75745
+wandb:        f1 0.6783
+wandb: precision 0.68235
+wandb:    recall 0.67845
+wandb:
+wandb: 🚀 View run Linear SVM + BoW at: https://wandb.ai/eece5644/final-project-20newsgroups/runs/n6376uz5
+wandb: ⭐️ View project at: https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260802_203132-n6376uz5/logs
+	CV=0.7574, Accuracy=69.00%, Precision=0.6823, Recall=0.6785, F1=0.6783
+running Logistic Regression + TF-IDF ...
+wandb: Tracking run with wandb version 0.28.1
+wandb: Run data is saved locally in /Users/fau/Documents/Fau/projects/school/eece5644/final-project/wandb/run-20260802_203143-y2v3wu36
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Logistic Regression + TF-IDF
+wandb: ⭐️ View project at https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: 🚀 View run at https://wandb.ai/eece5644/final-project-20newsgroups/runs/y2v3wu36
+wandb:
+wandb: Run history:
+wandb:  accuracy ▁
+wandb:  cv_score ▁
+wandb:        f1 ▁
+wandb: precision ▁
+wandb:    recall ▁
+wandb:
+wandb: Run summary:
+wandb:  accuracy 0.71291
+wandb:  cv_score 0.77631
+wandb:        f1 0.70204
+wandb: precision 0.70754
+wandb:    recall 0.70142
+wandb:
+wandb: 🚀 View run Logistic Regression + TF-IDF at: https://wandb.ai/eece5644/final-project-20newsgroups/runs/y2v3wu36
+wandb: ⭐️ View project at: https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260802_203143-y2v3wu36/logs
+	CV=0.7763, Accuracy=71.29%, Precision=0.7075, Recall=0.7014, F1=0.7020
+running Logistic Regression + BoW ...
+wandb: Tracking run with wandb version 0.28.1
+wandb: Run data is saved locally in /Users/fau/Documents/Fau/projects/school/eece5644/final-project/wandb/run-20260802_203208-5lqhue4k
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Logistic Regression + BoW
+wandb: ⭐️ View project at https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: 🚀 View run at https://wandb.ai/eece5644/final-project-20newsgroups/runs/5lqhue4k
+wandb:
+wandb: Run history:
+wandb:  accuracy ▁
+wandb:  cv_score ▁
+wandb:        f1 ▁
+wandb: precision ▁
+wandb:    recall ▁
+wandb:
+wandb: Run summary:
+wandb:  accuracy 0.67904
+wandb:  cv_score 0.74082
+wandb:        f1 0.66813
+wandb: precision 0.67237
+wandb:    recall 0.66751
+wandb:
+wandb: 🚀 View run Logistic Regression + BoW at: https://wandb.ai/eece5644/final-project-20newsgroups/runs/5lqhue4k
+wandb: ⭐️ View project at: https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260802_203208-5lqhue4k/logs
+	CV=0.7408, Accuracy=67.90%, Precision=0.6724, Recall=0.6675, F1=0.6681
+running MLP + TF-IDF ...
+wandb: Tracking run with wandb version 0.28.1
+wandb: Run data is saved locally in /Users/fau/Documents/Fau/projects/school/eece5644/final-project/wandb/run-20260802_203234-ruj1dfyu
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run MLP + TF-IDF
+wandb: ⭐️ View project at https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: 🚀 View run at https://wandb.ai/eece5644/final-project-20newsgroups/runs/ruj1dfyu
+/opt/homebrew/Caskroom/miniconda/base/envs/eece5644/lib/python3.12/site-packages/joblib/externals/loky/process_executor.py:782: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+wandb:
+wandb: Run history:
+wandb:  accuracy ▁
+wandb:  cv_score ▁
+wandb:        f1 ▁
+wandb: precision ▁
+wandb:    recall ▁
+wandb:
+wandb: Run summary:
+wandb:  accuracy 0.73098
+wandb:  cv_score 0.79761
+wandb:        f1 0.7213
+wandb: precision 0.72697
+wandb:    recall 0.71998
+wandb:
+wandb: 🚀 View run MLP + TF-IDF at: https://wandb.ai/eece5644/final-project-20newsgroups/runs/ruj1dfyu
+wandb: ⭐️ View project at: https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260802_203234-ruj1dfyu/logs
+	CV=0.7976, Accuracy=73.10%, Precision=0.7270, Recall=0.7200, F1=0.7213
+running MLP + BoW ...
+wandb: Tracking run with wandb version 0.28.1
+wandb: Run data is saved locally in /Users/fau/Documents/Fau/projects/school/eece5644/final-project/wandb/run-20260802_203916-a4u6j6da
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run MLP + BoW
+wandb: ⭐️ View project at https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: 🚀 View run at https://wandb.ai/eece5644/final-project-20newsgroups/runs/a4u6j6da
+wandb:
+wandb: Run history:
+wandb:  accuracy ▁
+wandb:  cv_score ▁
+wandb:        f1 ▁
+wandb: precision ▁
+wandb:    recall ▁
+wandb:
+wandb: Run summary:
+wandb:  accuracy 0.72773
+wandb:  cv_score 0.7865
+wandb:        f1 0.71492
+wandb: precision 0.72464
+wandb:    recall 0.7146
+wandb:
+wandb: 🚀 View run MLP + BoW at: https://wandb.ai/eece5644/final-project-20newsgroups/runs/a4u6j6da
+wandb: ⭐️ View project at: https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260802_203916-a4u6j6da/logs
+	CV=0.7865, Accuracy=72.77%, Precision=0.7246, Recall=0.7146, F1=0.7149
+running Bag of embeddings + learned embeddings ...
+wandb: Tracking run with wandb version 0.28.1
+wandb: Run data is saved locally in /Users/fau/Documents/Fau/projects/school/eece5644/final-project/wandb/run-20260802_204627-mu5acxqk
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Bag of embeddings + learned embeddings
+wandb: ⭐️ View project at https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: 🚀 View run at https://wandb.ai/eece5644/final-project-20newsgroups/runs/mu5acxqk
+	epoch 1/100: loss=2.9860, val_acc=10.92%
+	epoch 2/100: loss=2.9194, val_acc=21.10%
+	epoch 3/100: loss=2.8356, val_acc=31.75%
+	epoch 4/100: loss=2.7185, val_acc=38.00%
+	epoch 5/100: loss=2.5555, val_acc=43.23%
+	epoch 6/100: loss=2.3613, val_acc=47.99%
+	epoch 7/100: loss=2.1685, val_acc=53.69%
+	epoch 8/100: loss=1.9740, val_acc=59.01%
+	epoch 9/100: loss=1.8048, val_acc=63.49%
+	epoch 10/100: loss=1.6410, val_acc=65.55%
+	epoch 11/100: loss=1.4984, val_acc=68.07%
+	epoch 12/100: loss=1.3778, val_acc=69.56%
+	epoch 13/100: loss=1.2529, val_acc=70.40%
+	epoch 14/100: loss=1.1552, val_acc=71.52%
+	epoch 15/100: loss=1.0716, val_acc=72.08%
+	epoch 16/100: loss=0.9909, val_acc=72.83%
+	epoch 17/100: loss=0.9286, val_acc=74.04%
+	epoch 18/100: loss=0.8724, val_acc=74.42%
+	epoch 19/100: loss=0.8072, val_acc=74.70%
+	epoch 20/100: loss=0.7557, val_acc=74.88%
+	epoch 21/100: loss=0.7078, val_acc=75.16%
+	epoch 22/100: loss=0.6758, val_acc=75.82%
+	epoch 23/100: loss=0.6413, val_acc=76.00%
+	epoch 24/100: loss=0.6050, val_acc=76.66%
+	epoch 25/100: loss=0.5721, val_acc=76.47%
+	epoch 26/100: loss=0.5370, val_acc=76.56%
+	epoch 27/100: loss=0.5110, val_acc=76.75%
+	epoch 28/100: loss=0.4815, val_acc=77.22%
+	epoch 29/100: loss=0.4583, val_acc=77.40%
+	epoch 30/100: loss=0.4384, val_acc=78.06%
+	epoch 31/100: loss=0.4170, val_acc=77.78%
+	epoch 32/100: loss=0.3960, val_acc=77.78%
+	epoch 33/100: loss=0.3757, val_acc=77.78%
+	epoch 34/100: loss=0.3542, val_acc=77.68%
+	epoch 35/100: loss=0.3465, val_acc=77.87%
+	epoch 36/100: loss=0.3273, val_acc=77.87%
+	epoch 37/100: loss=0.3144, val_acc=78.15%
+	epoch 38/100: loss=0.2975, val_acc=78.62%
+	epoch 39/100: loss=0.2889, val_acc=78.43%
+	epoch 40/100: loss=0.2702, val_acc=78.24%
+	epoch 41/100: loss=0.2603, val_acc=78.24%
+	epoch 42/100: loss=0.2565, val_acc=77.96%
+	epoch 43/100: loss=0.2408, val_acc=78.15%
+	epoch 44/100: loss=0.2357, val_acc=78.24%
+	epoch 45/100: loss=0.2259, val_acc=78.24%
+	epoch 46/100: loss=0.2162, val_acc=78.62%
+	stopping: no gain in 8 epochs
+wandb:
+wandb: Run history:
+wandb:   accuracy ▁
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇████
+wandb:         f1 ▁
+wandb:  precision ▁
+wandb:     recall ▁
+wandb: train_loss ███▇▇▆▆▅▅▄▄▄▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:    val_acc ▁▂▃▄▄▅▅▆▇▇▇▇▇▇██████████████████████████
+wandb:
+wandb: Run summary:
+wandb:   accuracy 0.68031
+wandb:      epoch 46
+wandb:         f1 0.66714
+wandb:  precision 0.67367
+wandb:     recall 0.66737
+wandb: train_loss 0.21622
+wandb:    val_acc 0.78618
+wandb:
+wandb: 🚀 View run Bag of embeddings + learned embeddings at: https://wandb.ai/eece5644/final-project-20newsgroups/runs/mu5acxqk
+wandb: ⭐️ View project at: https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260802_204627-mu5acxqk/logs
+	Accuracy=68.03%, Precision=0.6737, Recall=0.6674, F1=0.6671
+running BiLSTM + learned embeddings ...
+wandb: Tracking run with wandb version 0.28.1
+wandb: Run data is saved locally in /Users/fau/Documents/Fau/projects/school/eece5644/final-project/wandb/run-20260802_204655-o6dh2tpl
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run BiLSTM + learned embeddings
+wandb: ⭐️ View project at https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: 🚀 View run at https://wandb.ai/eece5644/final-project-20newsgroups/runs/o6dh2tpl
+	epoch 1/100: loss=3.0376, val_acc=20.82%
+	epoch 2/100: loss=2.6955, val_acc=34.45%
+	epoch 3/100: loss=2.2861, val_acc=44.07%
+	epoch 4/100: loss=2.0012, val_acc=50.14%
+	epoch 5/100: loss=1.7650, val_acc=50.98%
+	epoch 6/100: loss=1.6029, val_acc=52.57%
+	epoch 7/100: loss=1.4500, val_acc=56.21%
+	epoch 8/100: loss=1.3345, val_acc=56.40%
+	epoch 9/100: loss=1.2396, val_acc=59.20%
+	epoch 10/100: loss=1.1312, val_acc=60.88%
+	epoch 11/100: loss=1.0702, val_acc=62.46%
+	epoch 12/100: loss=0.9758, val_acc=63.21%
+	epoch 13/100: loss=0.8905, val_acc=62.18%
+	epoch 14/100: loss=0.8513, val_acc=65.17%
+	epoch 15/100: loss=0.7808, val_acc=61.53%
+	epoch 16/100: loss=0.7335, val_acc=62.93%
+	epoch 17/100: loss=0.6599, val_acc=65.27%
+	epoch 18/100: loss=0.6220, val_acc=63.12%
+	epoch 19/100: loss=0.5932, val_acc=65.92%
+	epoch 20/100: loss=0.5463, val_acc=66.95%
+	epoch 21/100: loss=0.5232, val_acc=66.11%
+	epoch 22/100: loss=0.4770, val_acc=67.13%
+	epoch 23/100: loss=0.4533, val_acc=65.17%
+	epoch 24/100: loss=0.4179, val_acc=65.92%
+	epoch 25/100: loss=0.3944, val_acc=67.41%
+	epoch 26/100: loss=0.3612, val_acc=67.13%
+	epoch 27/100: loss=0.3471, val_acc=67.13%
+	epoch 28/100: loss=0.3272, val_acc=67.88%
+	epoch 29/100: loss=0.2941, val_acc=67.51%
+	epoch 30/100: loss=0.2756, val_acc=68.81%
+	epoch 31/100: loss=0.2579, val_acc=67.51%
+	epoch 32/100: loss=0.2512, val_acc=67.69%
+	epoch 33/100: loss=0.2329, val_acc=67.88%
+	epoch 34/100: loss=0.2250, val_acc=67.97%
+	epoch 35/100: loss=0.2021, val_acc=68.35%
+	epoch 36/100: loss=0.1973, val_acc=67.79%
+	epoch 37/100: loss=0.1849, val_acc=67.41%
+	epoch 38/100: loss=0.1837, val_acc=69.56%
+	epoch 39/100: loss=0.1771, val_acc=69.37%
+	epoch 40/100: loss=0.1610, val_acc=69.28%
+	epoch 41/100: loss=0.1606, val_acc=69.00%
+	epoch 42/100: loss=0.1448, val_acc=69.75%
+	epoch 43/100: loss=0.1520, val_acc=70.21%
+	epoch 44/100: loss=0.1353, val_acc=69.09%
+	epoch 45/100: loss=0.1398, val_acc=68.81%
+	epoch 46/100: loss=0.1280, val_acc=70.59%
+	epoch 47/100: loss=0.1261, val_acc=68.07%
+	epoch 48/100: loss=0.1204, val_acc=69.47%
+	epoch 49/100: loss=0.1146, val_acc=70.31%
+	epoch 50/100: loss=0.1099, val_acc=69.75%
+	epoch 51/100: loss=0.1291, val_acc=70.31%
+	epoch 52/100: loss=0.1132, val_acc=70.96%
+	epoch 53/100: loss=0.1008, val_acc=69.75%
+	epoch 54/100: loss=0.0934, val_acc=70.87%
+	epoch 55/100: loss=0.0936, val_acc=71.15%
+	epoch 56/100: loss=0.0885, val_acc=70.21%
+	epoch 57/100: loss=0.1086, val_acc=71.15%
+	epoch 58/100: loss=0.0884, val_acc=70.49%
+	epoch 59/100: loss=0.0868, val_acc=70.96%
+	epoch 60/100: loss=0.0845, val_acc=70.87%
+	epoch 61/100: loss=0.0794, val_acc=69.93%
+	epoch 62/100: loss=0.0826, val_acc=69.56%
+	epoch 63/100: loss=0.0706, val_acc=69.93%
+	stopping: no gain in 8 epochs
+wandb:
+wandb: Run history:
+wandb:   accuracy ▁
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇▇███
+wandb:         f1 ▁
+wandb:  precision ▁
+wandb:     recall ▁
+wandb: train_loss █▆▆▅▄▃▃▃▃▃▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:    val_acc ▁▃▄▅▅▆▇▇▇▇▇▇▇▇▇▇▇▇▇████▇████████████████
+wandb:
+wandb: Run summary:
+wandb:   accuracy 0.62851
+wandb:      epoch 63
+wandb:         f1 0.62112
+wandb:  precision 0.63645
+wandb:     recall 0.61841
+wandb: train_loss 0.07063
+wandb:    val_acc 0.69935
+wandb:
+wandb: 🚀 View run BiLSTM + learned embeddings at: https://wandb.ai/eece5644/final-project-20newsgroups/runs/o6dh2tpl
+wandb: ⭐️ View project at: https://wandb.ai/eece5644/final-project-20newsgroups
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260802_204655-o6dh2tpl/logs
+	Accuracy=62.85%, Precision=0.6365, Recall=0.6184, F1=0.6211

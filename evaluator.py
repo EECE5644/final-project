@@ -4,6 +4,8 @@ from dataclasses import dataclass
 
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
 
+from ptypes import Classifier
+
 
 @dataclass(frozen=True)
 class Metrics:
@@ -15,7 +17,7 @@ class Metrics:
     f1: float
 
 
-def evaluate(model, features, labels) -> Metrics:
+def evaluate(model: Classifier, features, labels) -> Metrics:
     predictions = model.predict(features)
     return Metrics(
         accuracy=float(accuracy_score(labels, predictions)),
